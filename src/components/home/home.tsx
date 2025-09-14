@@ -1,21 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
-import useWeatherForcast from '../../hooks/useWeatherForecast';
-import Error from '../error/error';
-import Forecast from '../forecast/forecast';
-import Loading from '../loading/loading';
-import Search from '../search/search';
 
+import useWeatherForcast from '../../hooks/useWeatherForecast';
+import Forecast from '../forecast/forecast';
+import Search from '../search/search';
 
 interface HomeProps { }
 
 const HomeDiv = styled.div`
     width: 100%;
-    height: 100%;
     min-height: 100vh;
     display: flex;
-    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    background: linear-gradient(112.1deg, rgb(20, 25, 40) 11.4%, rgb(50, 60, 100) 70.2%);
     flex-direction: column;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -39,11 +36,16 @@ const ForecastRow = styled.div`
 `;
 
 const Home: FC<HomeProps> = () => {
-  const { error, isLoading, forecast, submitRequest } = useWeatherForcast();
+  const { error, isLoading, forecast, submitRequest, clearError } = useWeatherForcast();
+  const [isCelsius, setIsCelsius] = useState(true);
 
   const onSubmit = (value: string) => {
     submitRequest(value);
-  }
+  };
+
+  const handleTemperatureToggle = (celsius: boolean) => {
+    setIsCelsius(celsius);
+  };
 
   return (
     <HomeDiv>
@@ -52,16 +54,26 @@ const Home: FC<HomeProps> = () => {
           <Col>
             <ColDiv>
               <RowDiv>
-                {!isLoading && <Search submitSearch={onSubmit} />}
-                {error && <Error data={error} />}
-                {isLoading && <Loading />}
+                <Search 
+                  submitSearch={onSubmit} 
+                  isCelsius={isCelsius}
+                  onTemperatureToggle={handleTemperatureToggle}
+                  error={error?.message}
+                  isLoading={isLoading}
+                  clearError={clearError}
+                />
               </RowDiv>
             </ColDiv>
           </Col>
         </Row>
         <Row className='justify-content-center'>
           <ForecastRow>
-            {forecast && !error && <Forecast forecast={forecast} />}
+            {forecast && !error && (
+              <Forecast 
+                forecast={forecast} 
+                isCelsius={isCelsius}
+              />
+            )}
           </ForecastRow>
         </Row>
       </Container>

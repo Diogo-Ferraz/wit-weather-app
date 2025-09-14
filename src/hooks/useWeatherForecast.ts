@@ -55,11 +55,14 @@ const useWeatherForecast = () => {
             });
     };
 
+    const clearError = () => setError(null);
+
     return {
         error,
         isLoading,
         forecast,
-        submitRequest
+        submitRequest,
+        clearError
     }
 }
 
