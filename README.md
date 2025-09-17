@@ -6,7 +6,13 @@ The app allows users to search for any city and view a **5-day weather forecast*
 
 ---
 
-## 📸 Demo
+## 🌐 Live Demo
+
+**Try the app live here: https://diogo-ferraz.github.io/wit-weather-app/**
+
+---
+
+## 📸 Video Demo
 
 Check out a short demo of the app here: [Watch Demo](https://youtu.be/Wx1e_8cW8go)
 
