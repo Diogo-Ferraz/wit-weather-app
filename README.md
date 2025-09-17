@@ -6,6 +6,12 @@ The app allows users to search for any city and view a **5-day weather forecast*
 
 ---
 
+## 📸 Demo
+
+Check out a short demo of the app here: [Watch Demo](https://youtu.be/Wx1e_8cW8go)
+
+---
+
 ## 🎯 Development Goals
 
 This project was designed to demonstrate my ability to:
@@ -38,12 +44,6 @@ This project was designed to demonstrate my ability to:
 - **Styled Components** (for UI styling)  
 - **Formik + Yup** (for form handling and validation)  
 - **OpenWeatherMap API** (for weather data)  
-
----
-
-## 📸 Demo
-
-Check out a short demo of the app here: [Watch Demo](https://youtu.be/Wx1e_8cW8go)
 
 ---
 
