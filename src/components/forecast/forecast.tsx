@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { WeatherForecast } from '../../store/types';
 import ForecastCurrentDay from '../forecast-current-day/forecast-current-day';
